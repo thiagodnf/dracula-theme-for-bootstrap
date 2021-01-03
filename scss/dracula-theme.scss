@@ -1,0 +1,72 @@
+$color-background:  #282a36;
+$color-currentline: #44475a;
+$color-foreground:  #f8f8f2;
+$color-comment:     #6272a4;
+$color-cyan:        #8be9fd;
+$color-green:       #50fa7b;
+$color-orange:      #ffb86c;
+$color-pink:        #ff79c6;
+$color-purple:      #bd93f9;
+$color-red:         #ff5555;
+$color-yellow:      #f1fa8c;
+
+$theme-colors: (
+    "primary":   $color-cyan,
+    "secondary": $color-currentline,
+    "success":   $color-green,
+    "info":      $color-comment,
+    "warning":   $color-yellow,
+    "danger":    $color-red,
+    "light":     $color-foreground,
+    "dark":      $color-background,
+    "pink":      $color-pink,
+    "orange":    $color-orange,
+    "purple":    $color-purple
+);
+
+$component-active-color: $color-background !default;
+$component-active-bg:    $color-cyan !default;
+
+$body-bg: #383a59;
+$body-color: white;
+
+$breadcrumb-bg: $color-background;
+$nav-tabs-link-active-color: $color-foreground;
+
+// Pagination
+
+$pagination-border-color:           $color-background;
+$pagination-color:                  $color-cyan !default;
+$pagination-bg:                     transparent !default;
+
+$pagination-disabled-bg:            transparent !default;
+
+$pagination-hover-color:            $color-background !default;
+$pagination-hover-bg:               $color-cyan !default;
+$pagination-hover-border-color:     $color-background;
+
+$pagination-active-border-color:    $color-background;
+
+$pagination-disabled-color: $color-foreground;
+$pagination-disabled-border-color:  $color-background;
+
+// Alerts
+
+$alert-bg-scale:                    0%;
+$alert-border-scale:                0%;
+$alert-color-scale:                 0%;
+
+@import "../node_modules/bootstrap/scss/bootstrap";
+
+@each $theme, $value in $theme-colors {
+
+    .breadcrumb-item {
+
+        + .breadcrumb-item.text-#{$theme}{
+
+            &::before {
+                color: $value !important;
+            }
+        }
+    }
+}
